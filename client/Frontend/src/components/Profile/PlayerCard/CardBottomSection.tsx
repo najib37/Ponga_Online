@@ -44,7 +44,7 @@ const TwoFactorButton = () => {
     twofaCode && enableTrigger(
       twofaCode,
       { onSuccess: () => mutate('/2fa/status', true) }
-    ).then(data => toast.success(data?.message)); // alert debug
+    ).then(data => toast.info(data?.message)); // alert debug
     event.stopPropagation();
     setOpen2FA(false);
   }
