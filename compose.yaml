@@ -4,19 +4,27 @@ networks:
   internalNet:
     name: internalNet
 
+volumes:
+  database:
+    name: database
+
 services:
 
   postgres:
     image: postgres:16-bookworm
     restart: "on-failure"
-    container_name: postgres_najib
+    container_name: postgres
     env_file: .env
     networks: 
       - internalNet
+    volumes:
+      - database:/var/lib/postgresql/data
+    shm_size: 128mb
 
   server: 
     build: ./server
     container_name: server
+    restart: "on-failure"
     env_file: .env
     ports: 
       - target: 3000
@@ -27,7 +35,7 @@ services:
   client: 
     build: ./client
     container_name: client
-    env_file: .env
+    restart: "on-failure"
     ports: 
       - target: 8080
         published: 8080

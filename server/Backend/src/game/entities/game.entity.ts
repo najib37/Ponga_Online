@@ -85,9 +85,20 @@ export class Game extends GameData {
 		this._player2.RightPosition( this._Server );
 	}
 
+	checkDisconnect(){
+	
+		if ( this.Disconnection === true ){
+			this.GameIsStart = false;
+			this.GameIsEnd = true;
+			this._player1.CheckGameResult( this._player2 );
+			this._player2.CheckGameResult( this._player1 );
+		}
+
+	}
+
 	CheckEnding(){
 	
-		if ( this._Server.round === this.Mode.MaxRounds || this.Disconnection === true ){
+		if ( this._Server.round === this.Mode.MaxRounds ){
 			this.GameIsStart = false;
 			this.GameIsEnd = true;
 			this._player1.CheckGameResult( this._player2 );

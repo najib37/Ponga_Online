@@ -62,12 +62,6 @@ const RoundSelect : React.FC<SelectRound>= ( State ) => {
 			Mode.GuestId = id;
 			navigate('/game');
 			sendGameRequestTrigger(id);
-			// window.history.replaceState(null, '', '/game');
-			// setSearchParams('/game');
-			// sendGameRequestTrigger(id);
-			/*** Here i need to send a notif to the user with id : id */ // najib
-			/*
-			/***/
 		}
 		State.SetSelect(false);
 		game.emit('LookingForGame', Mode);
