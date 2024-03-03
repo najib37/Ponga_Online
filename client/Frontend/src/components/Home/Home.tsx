@@ -37,7 +37,7 @@ const Home = () => {
       <div className="Container">
         <section className="menuSection">
           <Section
-            title="HOME"
+            title="PING PONG"
             containerClass="homeContainer"
             titleClass="home"
             path=""
