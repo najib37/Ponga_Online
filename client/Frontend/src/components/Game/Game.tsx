@@ -349,10 +349,10 @@ const Game = () => {
 		
 	function ReplayReplayRefused( State : ReplayStates ){
 		if ( State.Disconnect === true ){
-			toast.info('The client has disconnected from the game!');
+			toast.info('The player has disconnected from the game!');
 		}
 		else if ( State.Left === true ){
-			toast.info('The client has departed from the game!');
+			toast.info('The player has departed from the game!');
 		}
 		else if ( State.Refuse === true ){
 			toast.info('Your request for a replay has been rejected.');
