@@ -33,7 +33,7 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <UserContext.Provider value={{user, isMutating, error, getUserTrigger}}>
-      <Suspense>
+      <Suspense fallback={<div className="flex justify-center items-center text-center text-6xl font-[PINGPONG] text-black h-screen w-screen">Loading...</div>}>
         {children}
       </Suspense>
     </UserContext.Provider>
