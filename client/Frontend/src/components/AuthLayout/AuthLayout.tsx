@@ -4,6 +4,12 @@ import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import { logStatus } from '../../api/auth/Login.ts';
 
+import grannyBackground from '../../assets/img/grannyBackground.png';
+import gameBackground from '../../assets/img/gameBackground.png';
+import chatBackground from '../../assets/img/chatBackground.png';
+import profileBackground from '../../assets/img/profileBackground.png';
+
+
 const AuthLayout = () => {
   const { location } = useLocationContext();
 
@@ -13,16 +19,16 @@ const AuthLayout = () => {
     switch (location) {
       case '/':
       case '/home':
-        setBackgroundImage('/src/assets/img/grannyBackground.png');
+        setBackgroundImage(grannyBackground);
         break;
       case '/game':
-        setBackgroundImage('/src/assets/img/gameBackground.png');
+        setBackgroundImage(gameBackground);
         break;
       case '/chat':
-        setBackgroundImage('/src/assets/img/chatBackground.png');
+        setBackgroundImage(chatBackground);
         break;
       case '/profile':
-        setBackgroundImage('/src/assets/img/profileBackground.png');
+        setBackgroundImage(profileBackground);
         break;
       default:
         setBackgroundImage('');
