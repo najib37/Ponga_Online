@@ -1,0 +1,62 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.chatListContainer {
+  @apply h-full md:w-1/4 flex flex-col;
+}
+
+.chatHistory {
+  height: calc(100% - 300px);
+  @apply relative overflow-auto bg-zinc-800 border-black border-[3px] flex-1 w-full md:mt-8;
+}
+
+.switchButtons {
+  @apply top-0 z-10 flex bg-zinc-800 container sticky items-center justify-around p-2 mx-auto text-zinc-400;
+}
+
+.chatSwitchButton {
+  font-family: ComicStandar;
+  @apply border-b-2 border-transparent text-2xl lg:mx-6 md:text-lg;
+}
+
+.chatSwitchButton.active {
+  @apply text-[#fc0000] font-medium relative after:content-[""] after:absolute after:w-full after:h-0.5 after:bg-[#fc0000] after:left-0 after:-bottom-1;
+}
+
+.friendsList,
+.groupsList {
+  @apply p-3;
+}
+
+.listMessage {
+  @apply relative grid items-center grid-cols-3 mb-4 cursor-pointer hover:bg-gray-800 lg:p-2;
+  border: #00d9ff;
+}
+
+.itemAvatar {
+  background-image: url('../../../assets/img/avatar.svg');
+  @apply w-12 h-12 bg-gray-300 rounded-full bg-center bg-cover m-auto;
+}
+
+.messageContainer {
+  @apply col-span-2;
+}
+
+.itemName {
+  font-family: 'ComicStandar';
+  @apply text-base lg:text-lg text-[#a7a7a7];
+}
+
+.itemMessage {
+  font-family: 'ComicStandar';
+  @apply text-gray-500 text-xs overflow-hidden whitespace-nowrap text-ellipsis max-w-full flex;
+}
+
+.itemTime {
+  @apply items-center flex pl-1;
+}
+
+.searchContainer {
+  @apply flex h-[50px] w-full bg-black;
+}

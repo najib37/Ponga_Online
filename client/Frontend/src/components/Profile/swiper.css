@@ -1,0 +1,10 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.swiper {
+  @apply w-full h-full;
+}
+.swiper-slide {
+  @apply flex justify-center items-center h-full w-full;
+}

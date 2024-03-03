@@ -1,0 +1,59 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.userMenu {
+  @apply absolute right-2 top-3 2xl:right-5  h-full;
+}
+
+.userMenuImage {
+    @apply h-12 w-12 border-2 border-white rounded-full;
+}
+
+.userMenuButton {
+    @apply relative inline-flex items-center text-sm font-medium text-center text-white;
+}
+
+.notifBill {
+    @apply border-black border-[1px] rounded-full h-3 w-3 bg-red-500 absolute top-0 right-0 text-sm text-center text-white font-[ComicStandar];
+}
+
+.userMenuUl {
+    @apply py-4 text-sm text-gray-200 bg-gray-800 border-4 border-black absolute w-[200px] space-y-2 rounded-md shadow-lg top-[70px] right-0 z-10 font-[ComicStandar];
+}
+
+.userMenuName {
+    @apply px-4 py-3 border-b-[1px] border-gray-600;
+}
+
+.userMenuName span {
+    @apply block text-lg text-gray-200 dark:text-white;
+}
+
+.userMenuLi {
+    @apply px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-md cursor-pointer;
+}
+
+.userMenuSearch {
+    @apply mb-2 py-2 p-2 w-full text-xs m-auto text-black bg-gray-100 focus:bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50;
+}
+
+.userMenuSearchUl {
+    @apply max-h-36 overflow-auto rounded-md;
+}
+
+.userMenuSearchUl::-webkit-scrollbar {
+    @apply w-1;
+}
+
+.userNotifSearchLi {
+    @apply flex flex-col px-4 border-b-2 border-gray-500 py-2 bg-gray-600 hover:bg-slate-950 cursor-pointer;
+}
+
+.listNotifSearch {
+    @apply px-4 py-3 border-b-[1px] border-gray-600;
+}
+
+.listNotifSearch span {
+    @apply block pb-2 text-sm text-gray-200 dark:text-white;
+}

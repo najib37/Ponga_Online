@@ -1,0 +1,37 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+  font-family: 'ComicStandar';
+  src: url('/src/assets/font/ComicStandarFont/comicbook-j49l1-webfont.woff')
+    format('woff');
+}
+
+@font-face {
+  font-family: 'PINGPONG';
+  src: url('/src/assets/font/MainTitleFont/Kamikaze3DGradient.ttf');
+}
+@font-face {
+  font-family: 'ComicBook';
+  src: url('/src/assets/font/HomeTitlesFont/go3v2.ttf');
+}
+
+/* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: hsl(24, 24%, 27%) #635761;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #635761;
+  }

@@ -1,0 +1,59 @@
+import React, { useState } from 'react';
+
+interface IProps {}
+
+interface IState {
+    chatList: IChatList;
+}
+
+const YourComponent: React.FC<IProps> = () => {
+    const [state, setState] = useState<IState>({
+        chatList: [
+            {
+                person: { id: "1", username: "user1", email: "user1@example.com", name: "User 1", avatar: "avatar1.jpg" },
+                lastMessage: { id: "123", content: "Hello!", createdAt: "2024-02-09T12:00:00", senderId: "1", receiverId: "2" },
+                unReadedMessage: 0
+            },
+            // Add more existing chat list items if needed
+        ]
+    });
+
+    function insertOrUpdatePerson(newPerson: IChatListChildPerson): void {
+        const { chatList } = state;
+        const index = chatList.findIndex(item => item.person.id === newPerson.id);
+
+        if (index === -1) {
+            // Person doesn't exist, insert new one at the beginning
+            const newChatListChild: IChatListChild = {
+                person: newPerson,
+                lastMessage: { id: "", content: "", createdAt: "", senderId: "", receiverId: "" }
+            };
+            const updatedChatList = [newChatListChild, ...chatList];
+            setState({ chatList: updatedChatList });
+        } else {
+            // Person already exists, modify and move to the beginning
+            const updatedChatList = [...chatList];
+            updatedChatList[index].person = newPerson;
+            const existingPerson = updatedChatList.splice(index, 1)[0];
+            updatedChatList.unshift(existingPerson);
+            setState({ chatList: updatedChatList });
+        }
+    }
+
+    // Example usage:
+    const newPerson: IChatListChildPerson = {
+        id: "2",
+        username: "user2",
+        email: "user2@example.com",
+        name: "User 2",
+        avatar: "avatar2.jpg"
+    };
+
+    insertOrUpdatePerson(newPerson);
+
+    return (
+        // Your component JSX
+    );
+};
+
+export default YourComponent;

@@ -1,0 +1,77 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+section {
+  @apply grid grid-cols-1 grid-rows-4 w-screen h-screen sm:grid-cols-4 sm:grid-rows-none md:grid-cols-4 lg:grid-cols-3;
+}
+
+.leftSection {
+  background-image: url('../../assets/img/pingpongBackground.png');
+  @apply bg-right row-span-1 bg-cover sm:row-auto;
+}
+
+.rightSection {
+  background-image: url('../../assets/img/pingpongBackground2.png');
+  @apply row-span-1 sm:row-auto bg-cover;
+}
+
+.middleSection {
+  @apply bg-black row-span-2 flex sm:col-span-2 sm:row-auto sm:block lg:col-span-1;
+}
+
+@media only screen and (max-width: 638px) {
+.middleSection {
+  @apply flex justify-center items-center;
+}
+}
+
+.title {
+  font-family: PINGPONG;
+  @apply text-7xl w-1/2 inline-block text-gray-200 text-center sm:h-1/2 sm:mt-[17vh] sm:text-[10vw] sm:w-full md:text-8xl lg:text-8xl xl:text-9xl;
+}
+
+.buttons {
+  @apply text-slate-100 text-center flex flex-col justify-center w-full gap-12;
+}
+.signButton {
+  font-family: ComicStandar;
+  @apply relative no-underline text-[#cfcfcf] w-1/2 inline-block text-xs shadow-[-1px_1px_0,-2px_2px_0,-3px_3px_0,-4px_4px_0,-5px_5px_0] mx-auto my-0 p-1 border-[1px] border-solid 2xl:text-xl;
+}
+
+.signButton:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
+
+.signButton:active {
+  top: 5px;
+  right: 5px;
+  box-shadow: 0 0 0 0;
+}
+
+.signButton:hover {
+  background-color: rgb(201, 144, 0);
+}
+
+.twoFactorAuth {
+  @apply text-black font-[ComicStandar] text-4xl text-center flex flex-col justify-center m-auto h-full w-3/4 xl:w-1/2 gap-12;
+}
+
+.twoFactorAuth h1 {
+  @apply text-white;
+}
+
+.twoFactorAuth button {
+  @apply text-lg;
+}

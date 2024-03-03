@@ -1,0 +1,32 @@
+[
+  {
+    "username": "user1najib",
+    "email": "user1@gmail.com",
+    "name": "user1 najib",
+    "avatar": "/user/avatr1"
+  },
+  {
+    "username": "user2yousef",
+    "email": "user2yousef@gmail.com",
+    "name": "user2 joundi",
+    "avatar": "user/avatr3"
+  },
+  {
+    "username": "user3 sekhera",
+    "email": "user3sekhera@gmail.com",
+    "name": "user3 sekhera",
+    "avatar": "test"
+  },
+  {
+    "username": "user4 haitam",
+    "email": "user4haitam@gmail.com",
+    "name": "user4 haitam",
+    "avatar": "user4/avatr4"
+  },
+  {
+    "username": "user5 hamid",
+    "email": "user5hamid@gmail.com",
+    "name": "user5 hamid",
+    "avatar": "user5/avatr5"
+  }
+]

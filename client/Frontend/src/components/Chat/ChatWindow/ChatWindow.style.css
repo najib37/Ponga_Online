@@ -1,0 +1,94 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.chatWindowContainer {
+  @apply relative bg-zinc-800 max-sm:h-[82vh] h-full w-full md:w-2/5;
+}
+
+.chatWindow {
+  background-image: url('../../../assets/img/chatWindowBackground.jpg');
+  @apply flex flex-col-reverse p-4 gap-3 m-auto h-[93%] w-full border-[3px] border-black overflow-auto bg-cover;
+}
+
+.chatWindowInput {
+  @apply flex m-auto h-[7%] w-full;
+}
+
+.chatMessage {
+  @apply flex items-start gap-2.5;
+}
+
+.messageAvatar {
+  @apply w-10 h-10 rounded-full bg-cover bg-center;
+}
+
+.messageHolder {
+  font-family: 'ComicStandar';
+  @apply flex flex-col min-w-[250px] max-w-[200px] xl:max-w-[350px] p-4 border-[2px] border-black rounded-e-3xl rounded-es-3xl bg-gray-100 shadow-lg shadow-black;
+}
+
+.messageItems {
+  @apply flex items-center space-x-2 rtl:space-x-reverse w-full justify-between;
+}
+
+.messageName {
+  @apply text-sm font-semibold text-gray-600;
+}
+
+.messageTime {
+  @apply text-xs font-normal text-gray-600;
+}
+
+.messageText {
+  @apply text-sm font-normal py-2.5 text-black;
+  word-wrap: break-word;
+}
+
+.messageReaded {
+  @apply inline-block h-6 w-6 rounded-full ring-2 ring-white;
+}
+
+.moreRededUsers {
+  @apply flex items-center justify-center w-6 h-6 text-[10px] font-medium text-white bg-gray-700 ring-2 ring-white border-white rounded-full hover:bg-gray-600 dark:border-gray-800
+}
+
+
+.chat-bubble {
+  @apply bg-[#656968] inline-block w-24 px-7 py-4 rounded-bl-sm rounded-[20px];
+  -webkit-border-radius: 20px;
+  -webkit-border-bottom-left-radius: 2px;
+  -moz-border-radius: 20px;
+  -moz-border-radius-bottomleft: 2px;
+}
+.typing {
+  @apply items-center flex h-[17px];
+}
+.typing .dot {
+  @apply animate-[mercuryTypingAnimation_1.8s_infinite_ease-in-out] bg-[#6CAD96] h-[7px] align-middle w-[7px] inline-block mr-1 rounded-[50%] last:mr-0;
+}
+.typing .dot:nth-child(1) {
+  animation-delay: 200ms;
+}
+.typing .dot:nth-child(2) {
+  animation-delay: 300ms;
+}
+.typing .dot:nth-child(3) {
+  animation-delay: 400ms;
+}
+
+
+@keyframes mercuryTypingAnimation {
+  0% {
+    transform: translateY(0px);
+    background-color:#6CAD96;
+  }
+  28% {
+    transform: translateY(-7px);
+    background-color:#9ECAB9;
+  }
+  44% {
+    transform: translateY(0px);
+    background-color: #B5D9CB;
+  }
+}

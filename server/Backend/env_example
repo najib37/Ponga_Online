@@ -1,0 +1,15 @@
+CLIENTUID=u-s4t2ud-af145fbbd9cc0908322a41cdd407efbfcb03d473f9483d259e7ade8ebd998398
+CLIENTSECRET=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
+LOOPBACKURL=http://localhost:3000/auth/42/callback
+
+
+SECRET='this is the secret temp'
+
+# This was inserted by `prisma init`:
+# Environment variables declared in this file are automatically made available to Prisma.
+# See the documentation for more detail: https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
+
+# Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
+# See the documentation for all the connection string options: https://pris.ly/d/connection-strings
+
+DATABASE_URL="postgresql://hharik:urmom123@localhost:5432/42?schema=public"

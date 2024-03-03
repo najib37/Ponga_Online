@@ -1,0 +1,32 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+  font-family: 'ComicBook';
+  src: url('../../assets/font/MainTitleFont/Kamikaze.ttf');
+}
+
+.nav {
+  @apply relative flex flex-row shadow h-[75px] bg-black md:w-10/12 lg:mt-[1%] lg:w-2/3 m-auto ;
+  @screen md {
+    border-radius: 20px; 
+  }
+}
+
+.navContainer {
+  @apply container flex items-center justify-center p-6 mx-auto text-white;
+}
+
+.Links {
+  font-family: ComicBook;
+  @apply border-b-2 border-transparent  mx-1.5 sm:mx-6;
+}
+
+.navContainer a:hover {
+  @apply text-orange-200;
+}
+
+.navContainer a.active {
+  @apply text-orange-400 font-medium relative after:content-[""] after:absolute after:w-full after:h-0.5 after:bg-orange-400 after:left-0 after:-bottom-1;
+}

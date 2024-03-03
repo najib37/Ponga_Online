@@ -1,0 +1,24 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.ChatContainer {
+     height: calc(100vh - 75px);
+    @apply flex flex-row items-center justify-between w-screen xl:w-[80vw] lg:h-[80vh] lg:mt-[1%]  mx-auto max-sm:bg-black;
+}
+
+.chatMobileButtons {
+    @apply flex flex-row justify-around h-[6vh] fixed bottom-0 right-0 left-0 bg-black text-white font-['ComicBook'];
+}
+
+.content {
+    @apply h-full;
+}
+
+.phoneScreen {
+    @apply flex flex-col h-full w-screen;
+}
+
+.popUp {
+    @apply absolute z-50 justify-around items-center text-lg flex flex-col max-sm:left-0 top-[30%] left-[30%] h-[40vh] min-w-[300px] md:w-[40vw] bg-gray-800 border-4 border-black;
+}

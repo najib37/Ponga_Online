@@ -1,0 +1,189 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  // previewFeatures = ["fullTextSearch"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  // profile
+  id       String @id @default(uuid())
+  username String @unique
+  email    String @unique
+  name     String
+  avatar   String
+
+  // friends
+  friends  User[] @relation("friendship")
+  friendOf User[] @relation("friendship")
+
+  // Blocklist
+  blocklist User[] @relation("blocked")
+  blockedBy User[] @relation("blocked")
+
+  // Game player 
+  player Player? @relation("Player User Relation")
+
+  // 2factor settingds
+  twoFactorEnabled Boolean @default(false)
+  twoFactor        String?
+
+  sentMessages     Message[] @relation("SentMessages")
+  receivedMessages Message[] @relation("ReceivedMessages")
+  Roomadmins       Room[]    @relation("admins")
+
+  // NOTIFICATION
+
+  notifications Notification[] @relation("notifications")
+
+  Roomowner Room[] @relation("RoomOwner")
+
+  RoomsMessages       RoomsMessages[] @relation("RoomSender")
+  RoomsMessagesReaded RoomsMessages[] @relation("VMessage")
+
+  RoomUsers RoomUsers[]
+}
+
+// ________________________Game_____________________________
+
+model Player {
+  userId String @unique
+  user   User   @relation("Player User Relation", fields: [userId], references: [id], onDelete: Cascade)
+
+  xp    Int
+  level Float
+
+  wonGames    Game[]       @relation("won games")
+  lostGames   Game[]       @relation("lost games")
+  achievments Achievment[] @relation("ingame achievments")
+
+  @@id([userId])
+}
+
+model Game {
+  id String @id @default(uuid())
+
+  winnerId String
+  winner   Player? @relation("won games", fields: [winnerId], references: [userId])
+
+  loserId String
+  loser   Player? @relation("lost games", fields: [loserId], references: [userId])
+
+  rounds      Int      @default(5)
+  mode        GameMods @default(CLASSIC)
+  winnerScore Int      @default(0)
+  loserScore  Int      @default(0)
+
+  isCompleted Boolean @default(true)
+
+  createdAt DateTime @default(now()) // use it to sort
+}
+
+model Achievment {
+  type    String   @id @unique // INFO: create the achievment first time an use it on all the player
+  palyers Player[] @relation("ingame achievments")
+}
+
+// ________________________notification______________________
+model Notification {
+  id        String            @id @default(uuid())
+  type      String
+  content   String
+  state     NotificationState @default(PENDING)
+  createdAt DateTime          @default(now()) // use it to delete notif
+
+  recipient   User?  @relation("notifications", fields: [recipientId], references: [id], onDelete: Cascade)
+  recipientId String
+  senderId    String
+}
+
+//**************** Direct Message Models ******************************************//
+
+model Message {
+  id         String   @id @default(uuid())
+  content    String
+  createdAt  DateTime
+  sender     User     @relation("SentMessages", fields: [senderId], references: [id])
+  receiver   User     @relation("ReceivedMessages", fields: [receiverId], references: [id])
+  senderId   String
+  receiverId String
+  readed     Boolean? @default(false)
+}
+
+//*********************************************************************************//
+
+//**************** Room Chat Models ***********************************************//
+
+model Room {
+  id        String   @id @default(uuid())
+  name      String
+  owner     User?    @relation("RoomOwner", fields: [roomOwner], references: [id], onDelete: Cascade)
+  roomOwner String?
+  admins    User[]   @relation("admins")
+  type      RoomType
+  password  String?
+
+  RoomsMessages RoomsMessages[]
+  RoomUsers     RoomUsers[]
+}
+
+model RoomUsers {
+  userId       String
+  roomId       String
+  state        RoomUserState @default(NORMAL)
+  muteDuration DateTime?
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  room         Room          @relation(fields: [roomId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, roomId])
+}
+
+model RoomsMessages {
+  id            String   @id @default(uuid())
+  content       String
+  sender        User     @relation("RoomSender", fields: [senderId], references: [id], onDelete: Cascade)
+  senderId      String
+  roomUserId    Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  roomId        String
+  createdAt     DateTime
+  ReadedMessage User[]   @relation("VMessage")
+}
+
+enum NotificationState {
+  READ
+  PENDING
+  CLICKED
+}
+
+enum RoomUserState {
+  NORMAL
+  BANNED
+  MUTED
+  KICKED
+}
+
+enum RoomType {
+  PRIVATEROOM
+  PUBLICROOM
+  PROTECTEDROOM
+}
+
+enum gameResults {
+  WIN
+  LOSE
+  RESIGN
+}
+
+enum GameMods {
+  YINYANG
+  CLASHOFCOLORS
+  CLASSIC
+}
+
+//*********************************************************************************//

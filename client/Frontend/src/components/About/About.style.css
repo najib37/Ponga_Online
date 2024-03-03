@@ -1,0 +1,95 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.body {
+  background-image: url('../../assets/img/meetTheTeam.png');
+  @apply h-screen overflow-y-hidden overflow-x-scroll bg-center bg-no-repeat bg-cover;
+}
+
+.scrollContainer {
+  @apply flex h-full items-center whitespace-nowrap;
+}
+
+.card {
+  @apply flex h-full min-w-full;
+}
+
+.whoAreWe {
+  background-image: url('../../assets/img/whoAreWe.jpg');
+  @apply bg-cover bg-center bg-no-repeat w-screen;
+}
+
+.programmerMates {
+  background-image: url('../../assets/img/programmerMates.jpg');
+  @apply bg-contain bg-left bg-no-repeat w-full ml-[-3%];
+}
+
+.programmerMatesBg {
+  background-image: url('../../assets/img/aboutBackground.jpg');
+  @apply bg-cover bg-center bg-no-repeat w-full;
+}
+
+.description {
+  background-image: url('../../assets/img/aboutBackground.jpg');
+  @apply whitespace-normal relative /*w-[60%]*/ bg-cover bg-center bg-no-repeat w-full;
+}
+
+.paragraph {
+  font-family: 'ComicStandar';
+  text-shadow:
+    2px 2px 0px white,
+    2px -2px 0px white,
+    -2px 2px 0px white,
+    -2px -2px 0px white,
+    2px 0px 0px white,
+    0px 2px 0px white,
+    -2px 0px 0px white,
+    0px -2px 0px white;
+  @apply ml-9 pt-[15vh] text-4xl 2xl:text-6xl font-semibold absolute text-center leading-loose text-zinc-950 h-screen w-[800px];
+}
+
+.errorSticker {
+  background-image: url('../../assets/img/404ErrorSticker.png');
+  @apply w-[400px] h-[100px] bg-cover bg-center bg-no-repeat transform rotate-[-10deg] top-[10%] left-[-10%];
+}
+
+.codeSticker {
+  background-image: url('../../assets/img/codeSticker.png');
+  @apply w-[400px] h-[100px] bg-cover bg-center bg-no-repeat transform rotate-[10deg] bottom-[-88%] relative left-[10%];
+}
+
+.saitama {
+  background-image: url('../../assets/img/SaitamaOk.svg');
+  @apply h-[120vh] bg-contain bg-center bg-no-repeat ml-[-40%] z-10;
+}
+
+.resume {
+  background-color: #f94c10;
+  background-image: url('../../assets/img/grannyBackground.png');
+  @apply flex flex-row;
+}
+
+.thanksSection {
+  @apply flex flex-col items-start justify-center ml-[2%];
+}
+
+.thanksForVisiting {
+  @apply text-6xl 2xl:text-8xl text-white font-bold;
+}
+
+.supportRepo {
+  @apply text-lg text-white font-semibold pl-5;
+}
+
+.Repo {
+  @apply underline;
+}
+
+.grannyGif {
+  @apply flex items-center justify-center w-full;
+}
+
+.granny {
+  @apply h-full bg-black border-4 border-[#F7B787];
+}

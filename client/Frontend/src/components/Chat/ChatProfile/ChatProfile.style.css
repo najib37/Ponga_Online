@@ -1,0 +1,86 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.ChatProfileContainer {
+    @apply overflow-auto bg-zinc-900 border-black border-[3px] h-full md:w-1/4;
+}
+
+.avatarContainer {
+    @apply relative m-auto;
+}
+
+.avatar {
+    /*background-image: url('../../../assets/img/avatar.svg');*/
+    @apply w-32 h-32 rounded-full m-auto my-2 bg-cover bg-center;
+}
+
+.avatarStatus {
+    @apply bottom-0 left-[60%] absolute w-7 h-7 border-2 border-gray-800 rounded-full;
+}
+
+
+.avatarInfo {
+    @apply flex flex-col text-center text-white lg:text-2xl my-2 font-['ComicStandar'];
+}
+
+.membersCount {
+    @apply text-sm text-stone-300;
+}
+
+.profileButtons {
+    @apply flex justify-around my-2;
+}
+
+.matchHistory {
+    @apply my-5 font-['ComicStandar'] p-2 flex flex-col justify-center items-center bg-zinc-800;
+}
+
+.matchHistoryTitle {
+    @apply text-center text-stone-300 text-sm;
+}
+
+.matchHistoryItem {
+    @apply grid grid-cols-3 text-left p-2 text-white text-sm hover:bg-slate-400 hover:text-black;
+}
+
+.matchHistoryItem span:nth-child(2) {
+    @apply text-center;
+}
+
+.profileSettings {
+    @apply flex flex-col justify-center items-center bg-zinc-800 ;
+}
+
+.profileSettings button {
+    @apply w-full m-1 text-lg text-red-700 font-[ComicStandar] hover:bg-slate-400;
+}
+
+.profileSettings .Join {
+    @apply text-green-500 hover:bg-stone-900 text-xl;
+}
+
+.profileSettings .channelSettings {
+    @apply text-yellow-400;
+}
+
+
+.groupMembers {
+    @apply my-4 flex flex-col max-sm:h-[40vh] h-[50%] overflow-y-auto items-center bg-zinc-800 relative;
+}
+
+.member {
+    @apply flex items-center w-full p-2 text-gray-100 text-base font-[ComicStandar] hover:bg-slate-400 hover:text-black;
+}
+
+.memberAvatar {
+    @apply w-12 h-12 rounded-full border-2 border-black bg-cover bg-center;
+}
+
+.memberName {
+    @apply ml-2 text-sm lg:text-lg;
+}
+
+.findMember {
+    @apply flex flex-row justify-center items-center;
+}
