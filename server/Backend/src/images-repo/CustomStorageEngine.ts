@@ -31,7 +31,6 @@ export class MyCustomStorageEngine implements StorageEngine {
     const imagePath = this.Directory + fileName;
     fs.mkdirSync("." + this.Directory, { recursive: true });
     let outStream = fs.createWriteStream("." + imagePath)
-    console.log(imagePath)
 
     file.stream.pipe(outStream)
     outStream.on('error', cb)

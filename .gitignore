@@ -1,0 +1,3 @@
+.env
+./client/Frontend/.env.development
+./client/Frontend/.env.production

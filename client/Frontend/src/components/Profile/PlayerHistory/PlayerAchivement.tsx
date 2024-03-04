@@ -88,7 +88,7 @@ const SwipperWrapper = ({ children }: { children: ReactNode }) => {
 
 }
 
-const PlayerAchivements = () => {// TODO
+const PlayerAchivements = () => {
 
   const { profile } = useProfile();
   const { data: playerAchs } = useSWR(`/player/achievements/${profile?.user.id}`, getPlayerachievements);

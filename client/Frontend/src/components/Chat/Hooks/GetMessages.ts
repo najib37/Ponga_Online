@@ -15,11 +15,9 @@ export function GetMessages(
 ) {
     socket.emit(event, arg, (response : IMessages) => {
         if (response === undefined) {
-            console.log("Makaynch");
             return
         }
 
-        console.log("Response : ", response)
 
         if (response.length === 0) {
             setHasMoreMessage(false);

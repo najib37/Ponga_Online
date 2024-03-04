@@ -24,12 +24,10 @@ const MessageGroupListener = () => {
 
         socketRooms.on('readedRoomMessageEvent', (response: GroupMessage) => {
 
-            console.log("Event Emited!!!!!!!!!!", response)
 
 
             if (currentUrl == ("/chat/Channels/" + response.roomId)) {
 
-                console.log("****************************************************************************")
 
                 setMessages(prevMessages => prevMessages.map(message => {
 
@@ -39,8 +37,6 @@ const MessageGroupListener = () => {
 
                     if (index !== -1) {
 
-                        console.log("Message : ", message)
-                        console.log("Message users :: ", response.msgs[index].ReadedMessage)
 
                         let readedUserList: userReadedMsg[] = message.ReadedMessage
 
@@ -61,7 +57,6 @@ const MessageGroupListener = () => {
                     return message;
                 }))
 
-                console.log("****************************************************************************")
             }
 
 

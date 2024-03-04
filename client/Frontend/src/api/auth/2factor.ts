@@ -13,7 +13,6 @@ export const authApi = axios.create({
 })
 
 export async function generate2faQr(url: string) : Promise<string> {
-  console.log("request sent");
   return authApi.get(url).then(res => res.data).catch(() => { });
 }
 
@@ -38,6 +37,5 @@ export async function disable2Fa(url: string) {
 // }
 
 export async function getAuthStatus(url: string) : Promise<boolean> {
-  console.log("status ");
   return authApi.get(url).then(res => res.data?.twoFactor).catch(() => { });
 }

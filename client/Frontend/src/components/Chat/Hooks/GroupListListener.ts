@@ -42,7 +42,6 @@ const GroupListListener = () => {
 
             setGroups(prevGroups => prevGroups.map(group => {
                 if (group.id === response.id) {
-                    console.log(response.type)
                     return {...group, name: response.name, type: response.type}
                 }
                 return group
@@ -58,7 +57,6 @@ const GroupListListener = () => {
             setGroups(preGroups => {
                 const index = preGroups.findIndex(group => group.id === response.roomId)
 
-                console.log("Finded Groups : ", index)
                 if (index !== -1) {
 
                     const updatedList = [...preGroups];
@@ -74,7 +72,6 @@ const GroupListListener = () => {
                     const group = updatedList.splice(index, 1)[0];
                     updatedList.unshift(group)
 
-                    console.log("New one : ", updatedList);
 
                     return updatedList
 
@@ -88,8 +85,6 @@ const GroupListListener = () => {
 
         socketRooms.on('NewChannel', (response: IGroupListChild) => {
 
-            console.log("Channel Created succefuly")
-
             response._count = {RoomsMessages: 0}
             response.RoomsMessages = []
             setGroups((prevGroups) => [response, ...(prevGroups!)])
@@ -100,12 +95,10 @@ const GroupListListener = () => {
 
         socketRooms.on('listRoomMessage', (response) => {
 
-            console.log("List : ", response)
 
             setGroups(preGroups => {
                 const index : number = preGroups.findIndex(group => group.id === response.roomId);
 
-                console.log("Room Status ", index)
 
 
                 if (index !== -1) {

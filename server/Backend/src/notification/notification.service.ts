@@ -92,7 +92,6 @@ export class NotificationService {
     if (!notif)
       return false;
 
-    console.log("salam");
     await this.remove(notif.id);
     return true;
   }

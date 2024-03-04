@@ -82,7 +82,6 @@ export class BlockService {
       }
     })
 
-    console.log(user);
     if (user?.blocklist.length || user?.blockedBy.length)
       return true
     return false;

@@ -26,11 +26,8 @@ export class JwtGuard extends AuthGuard('jwt') {
             // 💡 We're assigning the payload to the request object here
             // so that we can access it in our route handlers
             request['user'] = payload;
-			//console.log("wax asat")
-			console.log("here is the requesrt :  ", request.path )
 			if (payload.otp === true && request?.path !== "/auth/otp")
 			{
-				console.log("")
 				throw new UnauthorizedException()
 			}
         }

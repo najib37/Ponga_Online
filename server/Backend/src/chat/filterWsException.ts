@@ -10,9 +10,6 @@ export class AllExceptionsFilter extends BaseWsExceptionFilter{
         const ctx = host.switchToWs()
         const client = ctx.getClient() as AuthSocket;
 
-        console.log("******************************************************")
-        console.log(exception)
-        console.log("******************************************************")
 
         client.emit("Error", "Invalid Operation!")
 

@@ -54,8 +54,6 @@ const GroupProfile = () => {
     } = useMyContext()
 
 
-    // console.log("Status : ", UserStatus)
-
 
     GroupProfileListener(
         setgroupMembers,
@@ -76,14 +74,8 @@ const GroupProfile = () => {
                     setRoomType(response.type)
 
 
-                    console.log("Respone Groupe :::::::::    ", response)
 
                     if (UserStatus === 'Not Member' && response.type === 'PROTECTEDROOM') {
-
-                        console.log(
-                            "Here****************************************"
-                        )
-
                         return
                     }
 
@@ -130,11 +122,6 @@ const GroupProfile = () => {
 
 
     function JoinChannel() {
-
-
-        console.log("RoomType : ", roomType)
-        console.log("RoomType : ", UserStatus)
-
 
         if (roomType === 'PROTECTEDROOM') {
             setProtected(true)
@@ -272,11 +259,7 @@ const GroupProfile = () => {
                                 name="Mutation"
                                 value={"5min"}
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                    console.log(e.target.value)
-
                                     setMutationValue(e.target.value)
-
-
                                 }}
                                 required={true}
                             />
@@ -291,7 +274,6 @@ const GroupProfile = () => {
                                 value="1hour"
 
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                    console.log(e.target.value)
                                     setMutationValue(e.target.value)
 
                                 }}
@@ -308,7 +290,6 @@ const GroupProfile = () => {
                                 name="Mutation"
                                 value="day"
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                    console.log(e.target.value)
                                     setMutationValue(e.target.value)
 
                                 }}
@@ -325,7 +306,6 @@ const GroupProfile = () => {
                                 name="Mutation"
                                 value="week"
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                    console.log(e.target.value)
                                     setMutationValue(e.target.value)
 
                                 }}

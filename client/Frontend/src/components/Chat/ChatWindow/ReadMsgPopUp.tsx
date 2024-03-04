@@ -25,7 +25,6 @@ const ReadMsgPopUp : React.FC<ReadMsgPopUpProps> = ({setshowReadedMember, usersR
              <ul className="max-h-80 overflow-auto rounded-md text-white p-2 font-[ComicStandar] flex flex-col items-center justify-around bg-gray-800 w-1/2">
                  {usersReadedMyMsgs &&  usersReadedMyMsgs.length > 0 &&
                      usersReadedMyMsgs?.map((user : userReadedMsg) => (
-                             // TODO select id in backend
                          <div key={user.id}>
                              <li  className={"flex flex-row justify-around text-center"}>
                              <img src={user.avatar} className={"h-14 w-14 border-2 border-black rounded-full"} alt={""}/>

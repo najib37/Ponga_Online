@@ -87,7 +87,6 @@ export class GameGateway implements OnGatewayInit, OnGatewayConnection, OnGatewa
 	}
 	//! DISCONNECTION
 	handleDisconnect( client: AuthSocket ) {
-		// TODO must fixed 
 		if ( !client.user ){
 			return ;
 		}

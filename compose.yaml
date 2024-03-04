@@ -19,6 +19,9 @@ services:
     env_file: .env
     networks: 
       - internalNet
+    ports: 
+      - target: 5432
+        published: 5432
     volumes:
       - database:/var/lib/postgresql/data
     shm_size: 128mb

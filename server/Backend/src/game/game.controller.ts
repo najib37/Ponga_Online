@@ -29,7 +29,7 @@ export class GameController {
     return this.gameService.getGameById(id);
   }
 
-  @Post() // WARN: debug
+  @Post() 
   postGameForTest(
     @Body(ValidationPipe) game
   ) {
@@ -50,7 +50,7 @@ export class GameController {
     // return this.gameService.getPlayedGamesBetween(myPlayerId, opponentId);
   }
 
-  @Post('ser') // WARN: debug
+  @Post('ser') 
   ser(@Body() body) {
     return this.gameService.serelize(body);
   }

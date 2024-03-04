@@ -37,7 +37,6 @@ export class MessageGateway implements OnGatewayConnection, OnGatewayDisconnect,
     connectedSocket: Map<string, AuthSocket> = new Map<string, AuthSocket>();
 
 
-    // TODO get Type
     private readonly socketAuthMiddleware: any;
 
     constructor(

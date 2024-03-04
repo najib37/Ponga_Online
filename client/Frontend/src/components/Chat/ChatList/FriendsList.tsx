@@ -68,7 +68,6 @@ const FriendsList = () => {
         SetPageNumberChatWindow(1)
         setHasMoreMessage(true)
 
-        // TODO improve
         if (selectedUser) {
             chat.emit('Typing', {
                 otherUser: selectedUser,

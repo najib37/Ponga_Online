@@ -9,7 +9,6 @@ import { ToastContainer } from 'react-toastify';
 
 const App = () => {
 
-  console.log(import.meta.env.VITE);
 
   return (
     <>

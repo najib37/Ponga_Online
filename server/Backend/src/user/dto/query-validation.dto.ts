@@ -16,11 +16,9 @@ import {
 class Requires implements ValidatorConstraintInterface {
   validate(value: any, validationArguments?: ValidationArguments): boolean | Promise<boolean> {
 
-    console.log(validationArguments);
     const result = validationArguments.constraints.every(constraint => {
       return validationArguments.object[constraint] !== undefined;
     });
-    console.log(result);
     return result;
   }
   defaultMessage(args: ValidationArguments) {

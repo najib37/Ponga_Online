@@ -60,12 +60,8 @@ const ChatWindowMessages = (
 
                     setUserStatus(response.UserStatus)
 
-                    console.log("Role : ", response.UserStatus)
-
 
                     if (response.UserStatus === 'BANNED' || !response.RoomType) {
-
-                        console.log("Hnaaaaaaa**********")
 
                         setMessages([]);
                         return;

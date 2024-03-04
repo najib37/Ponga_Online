@@ -7,7 +7,6 @@ export const SERVER_SOCKET_URL = import.meta.env.VITE_SERVER_SOCKET_URL;
 
 
 const Authentication = () => {
-  console.log("server = ", import.meta.env.VITE_SERVER_URL);
 
   return (
     <section>

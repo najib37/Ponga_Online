@@ -18,7 +18,6 @@ const TwoFactor = () => {
     if (twofaCode && twofaCode.length >= 6)
       sendOtpTrigger(twofaCode, {
         onSuccess: (otp) => {
-          console.log(otp)
           if (otp?.otpAuthorized === true) {
             mutate('/status')
             navigate('/home');

@@ -45,8 +45,6 @@ export class PrismaSocketFilter implements ExceptionFilter {
     const statusCode = this.exceptionMap[exception.code]?.code || HttpStatus.INTERNAL_SERVER_ERROR
     const message = this.exceptionMap[exception.code]?.message || "Internal Server Error"
 
-    console.log("socket filter");
-    console.log(exception);
     clientSocket.emit('Error', {
       statusCode: statusCode,
       message: message,

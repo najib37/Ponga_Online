@@ -9,7 +9,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTableTennisPaddleBall} from "@fortawesome/free-solid-svg-icons";
 
 const FriendProfile = () => {
-    // TODO Match History
     const [userData, setUserData] = useState<user | undefined>(undefined)
     const selectedId = useParams()
     const {
@@ -26,8 +25,6 @@ const FriendProfile = () => {
                 otherUserId: selectedId.id
             }, (response: user) => {
 
-
-                console.log("Response Profile User: ", response)
 
                 setUserData(response)
             })
@@ -46,7 +43,6 @@ const FriendProfile = () => {
         chat.on('Blocker-Event', (response: string) => {
 
 
-            console.log("test : ", response)
 
             if (response === selectedId.id) {
 
@@ -126,7 +122,6 @@ const FriendProfile = () => {
                             <span className="avatarName">{userData.user.name}</span>
                         </div>
                         <div className="profileButtons">
-                            {/*TODO*/}
                             {
                                 userData.isFriend && (<Button action="play" onClick={() => {
                                     if (userData?.user.status === 'online')

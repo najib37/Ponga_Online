@@ -10,7 +10,6 @@ export const Logout = () => {
   const { trigger: logoutTrigger } = useSWRMutation('auth', logOut)
 
   const handleClick = () => {
-    console.log(document.cookie);
     logoutTrigger('/logout', {
       onSuccess: () => {
         mutate(() => { }, undefined, {

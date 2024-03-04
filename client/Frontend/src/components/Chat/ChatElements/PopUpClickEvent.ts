@@ -6,7 +6,6 @@ export function Handler  (
     callback? : Function
 )  {
 
-    console.log("Here!!!")
 
     if (event.key === 'Escape') {
         stateDispatch(false)

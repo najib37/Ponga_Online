@@ -59,7 +59,6 @@ export class UserController {
       ParseQueryPipe
     ) { paginationQueries, searchQueries }: FormatedQueryType,
   ) {
-    console.log("recieved a request");
     return this.userService.findAll(paginationQueries);
   }
 
@@ -75,9 +74,7 @@ export class UserController {
     ) { paginationQueries }: FormatedQueryType,
     @Query('username') username?: string,
   ) {
-    // console.log("recieved request");
     const users = await this.userService.searchForUsers(paginationQueries, username);
-    console.log(users);
     return users;
   }
 
@@ -105,8 +102,6 @@ export class UserController {
     const id = req.user?.sub;
     if (!id)
       return {};
-    console.log("patch id = ", id)
-    // console.log(id);
     return this.userService.update(id, updateUserDto);
   } // not competed yet
 

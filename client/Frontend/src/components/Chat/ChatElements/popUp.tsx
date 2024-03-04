@@ -81,7 +81,6 @@ const PopUp: React.FC<PopupProps> = ({
 
 
     useEffect(() => {
-        console.log("Length , ", RoomName.length)
         if (actionLabel === 'Search For Groups') {
 
 
@@ -201,7 +200,6 @@ const PopUp: React.FC<PopupProps> = ({
                                                         }
 
                                                         SetPageNumberChatWindow(1);
-                                                        console.log("Room Type click : ", group.type)
                                                         setRoomType(group.type)
                                                         navigate('/chat/Channels/' + group.id)
                                                         onClose()

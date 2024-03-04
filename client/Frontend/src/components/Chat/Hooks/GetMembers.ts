@@ -15,7 +15,6 @@ const GetMembers = (
             id
         , (response: GroupMember) => {
 
-            console.log("Groupe Members : ", response)
             setgroupMembers(response)
 
             setOwner(response.roomOwner)

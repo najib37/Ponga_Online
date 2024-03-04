@@ -127,7 +127,6 @@ export const PlayButton = () => {
     return (<></>)
 
   const handleClick = () => {
-    console.log(profile.user);
     if (profile?.user.status === 'online')
       navigate(`/game/${profile.user.id}`);
 

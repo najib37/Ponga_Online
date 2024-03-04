@@ -83,14 +83,11 @@ export class RoomChatGateway implements OnGatewayConnection, OnGatewayInit, OnGa
         if (users.length > 0) {
             let toMuted: boolean = false
 
-            console.log("enter to find one : ", currentDate)
-
 
             const Rooms: Promise<string>[] = users.map(async (user: RoomUserDto): Promise<string> => {
 
                 if (currentDate > user.muteDuration) {
                     toMuted = true
-                    console.log("jate sa3to ")
 
                     await this.roomChatService.Mute_Unmute_User({
                         userId: user.userId,
@@ -103,7 +100,6 @@ export class RoomChatGateway implements OnGatewayConnection, OnGatewayInit, OnGa
 
             })
             if (toMuted) {
-                console.log("Go to Frontend")
                 const RoomsToEmit: string[] = await Promise.all(Rooms)
                 RoomsToEmit.map((room: string): void => {
 
@@ -218,9 +214,6 @@ export class RoomChatGateway implements OnGatewayConnection, OnGatewayInit, OnGa
 
             const socket: AuthSocket = this.connectedSocket.get(admin.id)
             if (socket) {
-                console.log("Event : ", arg.event)
-                console.log("admin : ", admin.id)
-
                 socket.emit(arg.event, arg.data)
                 if (secondEvent) {
                     socket.emit(secondEvent, arg.data)
@@ -234,17 +227,12 @@ export class RoomChatGateway implements OnGatewayConnection, OnGatewayInit, OnGa
 
             const socket: AuthSocket = this.connectedSocket.get(user.userId)
             if (socket) {
-                console.log("Event : ", arg.event)
-                console.log("user : ", user.userId)
-
-
                 socket.emit(arg.event, arg.data)
                 if (secondEvent) {
                     socket.emit(secondEvent, arg.data)
                 }
             }
         })
-        console.log("*********************************************")
 
 
     }
@@ -254,7 +242,6 @@ export class RoomChatGateway implements OnGatewayConnection, OnGatewayInit, OnGa
 
         const message: string | roomMessageDto = await this.roomChatService.createRoomMessage(client.user.sub, roomMessage);
 
-        console.log("Message : ", message)
 
         if (message === 'You cant Write Message to This Room') {
             client.emit('Error', 'You can not send message in this room')
@@ -285,7 +272,6 @@ export class RoomChatGateway implements OnGatewayConnection, OnGatewayInit, OnGa
     @SubscribeMessage('JoinRoom')
     async addUsers(@ConnectedSocket() client: AuthSocket, @MessageBody() RoomData : JoinChannelDto): Promise<string> {
 
-        console.log("Password : ", RoomData.password)
 
         const room : string | GroupResponse = await this.roomChatService.addUsers(client.user.sub, RoomData);
 
@@ -417,7 +403,6 @@ export class RoomChatGateway implements OnGatewayConnection, OnGatewayInit, OnGa
     async Mute_Unmute_User(client: AuthSocket, data: operationRoom): Promise<string> {
         const result: string = await this.roomChatService.Mute_Unmute_User(data, client.user.sub);
 
-        console.log("Test : ", result)
 
 
         if (result === 'Operation Done') {

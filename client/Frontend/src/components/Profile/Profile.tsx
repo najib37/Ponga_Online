@@ -10,7 +10,6 @@ import { FetchProfileType, ProfileContextProvider, useProfile } from '../../cont
 const ProfileCards = () => {
   const { profile, isLoading, error }: FetchProfileType = useProfile();
 
-  console.log("path = ", import.meta.env.VITE_FAIT);
   if (isLoading)
     return (<h1>Profile Is Loading</h1>)
 

@@ -19,7 +19,6 @@ export function SocketAuthMiddleware(jwtService: JwtService, config: ConfigServi
       client.user = payload;
     }
     catch (err) {
-      console.log(err);
       next(new Error("Unauthorized"));
     }
     next();

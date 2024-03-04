@@ -16,7 +16,6 @@ const Input = ({type, placeHolder, inputSize, setInputValue, inputValue, onClick
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value);
-        // console.log("Input Value" , event.target.value)
         if (SetPageNumberChatList)
             SetPageNumberChatList(1)
     };

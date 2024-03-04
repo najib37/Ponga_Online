@@ -46,7 +46,6 @@ const TypingDirectListening = (
 
             chat.on('isTyping', (response : TypingDto) => {
 
-                console.log("Typing response : ", response)
 
                 if (currentUrl.startsWith('/chat/Direct/') && selectedId.id === response.User.id) {
                     if (response.tp) {

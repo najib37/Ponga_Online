@@ -12,7 +12,6 @@ export interface Profile {
 
 export async function getProfile({ url, username }: { url: string, username: string }): Promise<Profile> {
 
-  console.log("mutate");
   return myApi.get(url, {
     params: {
       username

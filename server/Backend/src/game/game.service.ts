@@ -147,7 +147,6 @@ export class GameService {
     const winner = rawData?._player1.GameResult === 'WIN!' ? player1 : player2;
     const loser = rawData?._player1.GameResult === 'WIN!' ? player2 : player1;
 
-    console.log(rawData);
     // INFO: serelize the game
 
     const game: GameType = {

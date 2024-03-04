@@ -18,15 +18,12 @@ const FriendListListener = () => {
 
     useEffect(() => {
 
-        console.log("Listen to mesageeeeeeerererererererer")
 
         chat.on('addToList', (response)=> {
 
 
             setConversations(prevConversation => {
                 const index = prevConversation.findIndex(user => user.person.id === response.receiver.id);
-
-                console.log("index : ", index);
 
 
                 if (index !== -1) {
@@ -38,9 +35,6 @@ const FriendListListener = () => {
                     updatedList[index].unReadedMessage = 0;
                     const user = updatedList.splice(index, 1)[0];
                     updatedList.unshift(user);
-
-                    console.log("New one : ", updatedList);
-                    console.log("Old one : ", prevConversation);
 
                     return updatedList;
                 }
@@ -78,8 +72,6 @@ const FriendListListener = () => {
 
                     return updatedList;
                 }
-
-                console.log("Not Found!!!!!!!!")
 
                 let newUser : IChatListChild = {
                     lastMessage : response,

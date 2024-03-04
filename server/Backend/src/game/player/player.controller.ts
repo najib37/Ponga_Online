@@ -54,13 +54,11 @@ export class PlayerController {
   getPlayerStats(
     @Param('id') playerId: string
   ) {
-    // console.log("hello");
     return this.playerService.getPalyerStats(playerId);
   }
 
   @Get('achievements/:id')
   getAchievements(@Param('id') playerId: string) {
-    console.log("ana han");
     return this.playerService.getPlayerAchievements(playerId);
   }
 }

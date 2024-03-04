@@ -42,7 +42,6 @@ const DropUp = (props: any) => {
             muteDuration: null
         })
 
-        console.log("Ban......")
 
 
         socketRooms.off('Mute_UnMute_User')
@@ -80,7 +79,6 @@ const DropUp = (props: any) => {
             let availableSpaceAbove =
                 dropdownRef.current.offsetTop - listRef.current.clientHeight;
             isSpaceAbove = availableSpaceAbove <= 30;
-            console.log(isSpaceAbove);
             listRef.current.classList.toggle('top-[30px]', isSpaceAbove);
             listRef.current.classList.toggle('bottom-[30px]', !isSpaceAbove);
         }

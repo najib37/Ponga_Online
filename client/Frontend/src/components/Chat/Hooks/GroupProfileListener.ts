@@ -37,13 +37,11 @@ const GroupProfileListener = (
 
     useEffect(() => {
 
-        console.log("Profile Listener")
 
 
         socketRooms.on('JoinedEvent', (response) => {
             if (currentUrl.startsWith('/chat/Channels/') && selectedId.id === response.id) {
 
-                console.log("Joinedddd****************")
                 GetMembers(
                     selectedId.id,
                     setgroupMembers,
@@ -108,7 +106,6 @@ const GroupProfileListener = (
                     );
 
                     if (test === 0) {
-                        console.log("test : ", test)
                         navigate('/chat/Channels')
                         return
                     }
@@ -140,7 +137,6 @@ const GroupProfileListener = (
                 setOpenSetting(false)
             }
 
-            console.log('Updated Channel : ', response)
 
 
 

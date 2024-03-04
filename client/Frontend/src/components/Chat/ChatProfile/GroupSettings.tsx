@@ -10,7 +10,6 @@ import {socketRooms} from "../../Socket/socket.ts";
 
 const GroupSettings = () => {
 
-    console.log("Settings : *****: ")
 
 
     const {

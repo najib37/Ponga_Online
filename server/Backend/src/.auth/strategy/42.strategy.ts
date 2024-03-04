@@ -28,9 +28,7 @@ export class FortyTwoStrategy extends PassportStrategy(Strategy) {
       avatar: profile['_json']['image']['link'],
       name: profile['_json']['displayname']
     }
-    // console.log("this is the validate and profile " , user)
     const account = await this.userservice.findOrCreateUser(user)
-    // console.log(account)
     return account;
   }
  }

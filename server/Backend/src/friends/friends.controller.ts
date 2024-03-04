@@ -86,7 +86,6 @@ export class FriendsController {
     @Req() req: AuthReq,
   ) {
     const request = await this.notificationService.findByRerecipient(sendertId, req.user.sub, "User");
-    console.log(request);
     return request;
   }
 

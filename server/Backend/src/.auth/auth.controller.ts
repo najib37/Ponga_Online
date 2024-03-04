@@ -91,7 +91,6 @@ export class AuthController {
   async LogingStatus(@Req() req: AuthReq) {
 
     const user = await this.userservice.findOne(req.user?.sub, { twoFactorEnabled: true });
-    // console.log("user =", user);
 
     if (!user)
       return {}
@@ -109,12 +108,10 @@ export class AuthController {
   async userAuthStatus(@Res({ passthrough: true }) res, @Req() req) {
 
     const user = await this.userservice.findOne(req.user?.sub, { twoFactorEnabled: true });
-    // console.log("user =", user);
 
     if (!user)
       return {}
 
-    console.log("auth controller status");
     return ({
       message: 'authorized',
       authorized: true,
@@ -139,23 +136,18 @@ export class AuthController {
   async generateTwoFactor(@Req() req) {
     // i need the username and i have to generate a generateTwoFactAuthSecret using authenticator
     const user: any = req.user;
-    // console.log(req);
     const secret = await authenticator.generateSecret();
     const otpauthUrl = await authenticator.keyuri(user.email, 'FT_TRANS', secret); //  debug
 
-    // console.log("secret = ", secret);
     const test = await this.userservice.update(user.sub, { twoFactor: secret });
 
-    // console.log(test);
-    // console.log("_______________________", otpauthUrl + "\n\n\n");
+
 
     //generateQrCodeDataURL
     return toDataURL(otpauthUrl);
     // change this when linking with front 
 
-    // res.status(201).json({hamid: "rajol"})
     // return user;
-    // console.log(secret);
     // const updateSecret = this.userservice.updateSecret(/*user id && secret */);
     // now we generate a qr code
     // To do this, we’ll use the qrcode module.
@@ -168,7 +160,6 @@ export class AuthController {
   @UseGuards(JwtGuard)
   async turnOnTwoFactAuth(@Req() req: AuthReq, @Res({ passthrough: true }) res, @Body() body) {
 
-    // console.log(body);
     const user = await this.userservice.findOne(req.user?.sub, { twoFactor: true });
     const isCodeValid = await this.authservice.isTwoFactorAuthenticationCodeValid(
       body.twoFactorAuthenticationCode,
@@ -220,7 +211,6 @@ export class AuthController {
     const accessToken = await this.authservice.login42(req.user);
     const isVAlidCode = this.authservice.isTwoFactorAuthenticationCodeValid(token, user)
 
-    console.log("otp = ", token);
 
     if (isVAlidCode)
       res.cookie('jwt', accessToken, { httpOnly: true })

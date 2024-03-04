@@ -25,19 +25,15 @@ const Chat = () => {
 
     useEffect(() => {
 
-        // setUserId()
 
         chat.connect()
         socketRooms.connect()
 
 
-        console.log("Listen to error : !!!!!!!!!!")
         chat.on('Error', (response) => {
 
 
             toast.error(response)
-
-            // alert(response)
 
         })
 

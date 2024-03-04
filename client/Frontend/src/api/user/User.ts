@@ -23,7 +23,6 @@ export interface User {
   twoFactorEnabled: boolean,
 }
 
-// INFO: add data validation
 
 export function checkImageUrl(imgSrc?: string): string | undefined {
   if (imgSrc && imgSrc.match('https://') || imgSrc?.match('http://'))

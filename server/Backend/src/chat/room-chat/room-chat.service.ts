@@ -101,7 +101,6 @@ export class RoomChatService {
 
     const check: CheckMember = await this.checkIsMember(userId, RoomMessage.roomId)
 
-    console.log("Users Status", check.UserStatus)
 
 
     if (check.UserStatus === 'BANNED' || check.UserStatus === 'Not Member' || check.UserStatus === 'MUTED') {

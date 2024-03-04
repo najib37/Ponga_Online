@@ -24,7 +24,6 @@ export class BlockController {
       ParseQueryPipe
     ) { paginationQueries }: FormatedQueryType
   ) {
-    console.log(req.user.sub);
     return this.blockService.getBlockList(req.user.sub);
   }
 

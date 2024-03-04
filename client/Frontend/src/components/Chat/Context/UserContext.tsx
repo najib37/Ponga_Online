@@ -2,7 +2,6 @@ import React, {createContext, ReactNode, useContext} from "react";
 
 
 interface IUserContext {
-    // TODO
     id : string;
 }
 

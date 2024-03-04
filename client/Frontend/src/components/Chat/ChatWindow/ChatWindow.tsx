@@ -106,8 +106,6 @@ const ChatWindow = () => {
                     dataLength={messages.length}
                     next={() => {
                         if (currentUrl.startsWith('/chat/Direct/') && selectedId.id) {
-                            console.log("More Data")
-
                             GetMessages(
                                 chat,
                                 'findDmMessages',

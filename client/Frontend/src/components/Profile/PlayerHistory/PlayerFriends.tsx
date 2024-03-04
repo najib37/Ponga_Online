@@ -41,7 +41,6 @@ const PlayerFriends = () => {
     return (<></>)
 
   const getStatus = (status: string) => {
-    console.log(status);
     if (status === 'online')
       return 'green'
     if (status === 'offline')

@@ -8,14 +8,12 @@ export class AuthService {
   constructor(private jwtService: JwtService) { }
 
   async loginGoogle(user: User) {
-    console.log(user);
     const payload = { username: user.username, sub: user.id }
     const token = await this.generateJwtToken(payload)
     return token
   }
 
   async login42(user: User) {
-    console.log(user)
     const payload = { username: user.username, sub: user.id , otp: user.twoFactorEnabled}
     const token = await this.generateJwtToken(payload);
     return token;
@@ -23,8 +21,6 @@ export class AuthService {
 
   isTwoFactorAuthenticationCodeValid(twoFactorAuthCode: string, user: User) {
 
-    console.log("hello ", twoFactorAuthCode);
-    console.log("hello ", user.twoFactor);
 
     return authenticator.verify({ token: twoFactorAuthCode, secret: user.twoFactor })
   }

@@ -23,8 +23,6 @@ const MessageListener = () => {
 
         chat.on('message', (response: MessagesChild) => {
 
-            console.log("Hereeee !!!!")
-
 
             if (selectedId.id === response.sender.id
                 && currentUrl.startsWith('/chat/Direct/')
@@ -55,7 +53,6 @@ const MessageListener = () => {
         })
 
         socketRooms.on('roomMessage', (response : MessagesChild) => {
-            console.log("Group Message : ", response)
 
 
 

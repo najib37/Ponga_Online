@@ -60,7 +60,6 @@ async redirectUser(
 		res.cookie('jwt', accessToken, { httpOnly: true }).redirect(process.env.CLIENT_URL + '/otp');
 	else
 	res.cookie('jwt', accessToken, { httpOnly: true }).redirect(process.env.CLIENT_URL + '/home')
-	console.log("hereee iss ")
 
 }
 
@@ -70,7 +69,6 @@ async redirectUser(
 	async LogingStatus(@Req() req: AuthReq) {
 
     const user = await this.userservice.findOne(req.user?.sub, { twoFactorEnabled: true });
-    // console.log("user =", user);
 
     if (!user)
 		return {}
@@ -88,12 +86,10 @@ async redirectUser(
   async userAuthStatus(@Res({ passthrough: true }) res, @Req() req) {
 
     const user = await this.userservice.findOne(req.user?.sub, { twoFactorEnabled: true });
-    // console.log("user =", user);
 
     if (!user)
       return {}
 
-    console.log("auth controller status");
     return ({
       message: 'authorized',
       authorized: true,
@@ -119,11 +115,9 @@ async redirectUser(
 
     // i need the username and i have to generate a generateTwoFactAuthSecret using authenticator
     const user: any = req.user;
-    // console.log(req);
     const secret = await authenticator.generateSecret();
     const otpauthUrl = await authenticator.keyuri(user.email, 'FT_TRANS', secret); //  debug
 
-    // console.log("secret = ", secret);
     const test = await this.userservice.update(user.sub, { twoFactor: secret });
 
     //generateQrCodeDataURL
@@ -135,7 +129,6 @@ async redirectUser(
   @UseGuards(JwtGuard)
   async turnOnTwoFactAuth(@Req() req: AuthReq, @Res({ passthrough: true }) res, @Body() body) {
 
-    // console.log(body);
     const user = await this.userservice.findOne(req.user?.sub, { twoFactor: true });
     const isCodeValid = await this.authservice.isTwoFactorAuthenticationCodeValid(
       body.twoFactorAuthenticationCode,
@@ -195,7 +188,6 @@ async redirectUser(
     const accessToken = await this.authservice.login42(test);
     const isVAlidCode = this.authservice.isTwoFactorAuthenticationCodeValid(token, user)
 
-    // console.log("otp = ", token);
 
     if (isVAlidCode)
 		return res.clearCookie('jwt', { httpOnly: true }).cookie('jwt', accessToken, { httpOnly: true }).status(201).json({
