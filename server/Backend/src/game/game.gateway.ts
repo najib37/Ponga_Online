@@ -102,7 +102,7 @@ export class GameGateway implements OnGatewayInit, OnGatewayConnection, OnGatewa
 	//! LookingForGame
 	@SubscribeMessage('LookingForGame')
 	LookingForGame( client : AuthSocket, Mode : GameMode ){
-		if ( this.GameConnection.IsGuest( client.user?.sub) === true && Mode.IsPublic === true ){
+		if ( this.GameConnection.IsGuest( client.user?.sub) === true /* && Mode.IsPublic === true  */){
 			client.emit('JoinPrivateRoom', this.GameConnection.GetRoomByGuest(client.user?.sub).Game.FilterGame( ));
 			return ;
 		}

@@ -31,6 +31,9 @@ services:
         published: 3000
     networks: 
       - internalNet
+    depends_on:
+      postgres:
+        condition: service_started
 
   client: 
     build: ./client
@@ -41,3 +44,8 @@ services:
         published: 8080
     networks: 
       - internalNet
+    depends_on:
+      postgres:
+        condition: service_started
+      server:
+        condition: service_started

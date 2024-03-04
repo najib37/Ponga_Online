@@ -49,6 +49,7 @@ const PlayerFriends = () => {
             <SwiperSlide key={friend.id} >
               <button onClick={() => handleClick(friend.username)}>
                 <div className="friendDiv">
+                  <span className="onlineStatus" style={{backgroundColor: friend.status === 'offline' ? 'gray' : friend.status === 'online' ? 'green' : 'orange'}}></span>
                   <img src={checkImageUrl(friend.avatar)} className='friendAvatar' />
                   <div className="friendName">{friend.username}</div>
                 </div>

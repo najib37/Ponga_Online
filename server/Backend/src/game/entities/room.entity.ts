@@ -57,8 +57,8 @@ export class Room {
 	}
 	
 	UpdateGame() : void {
-		this.Game.BallMovement();
 		this.Game.checkDisconnect();
+		this.Game.BallMovement();
 		this.Game.Checker();
 		this.Game.CheckMovement();
 		if (this.Game.Mode.GameMode === 'CLASHOFCOLORS'){

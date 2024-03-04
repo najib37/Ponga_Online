@@ -71,7 +71,7 @@ const ChatWindowMessages = (
                         return;
                     }
 
-                    if (response.RoomType === 'PUBLICROOM')
+                    if (response.RoomType === 'PUBLICROOM' || response.UserStatus != 'Not Member')
                     {
                         GetMessages(
                             socketRooms,

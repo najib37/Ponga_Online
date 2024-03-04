@@ -53,11 +53,6 @@
   @apply flex flex-row justify-evenly;
 }
 
-
-.onlineStatus {
-    @apply border-black border-[1px] rounded-full h-3 w-3 bg-green-500 absolute top-[50%] right-0 text-sm text-center text-white font-[ComicStandar];
-}
-
 .profileFormButtons button , .TwoFaFormButtons button {
   @apply bg-green-500 text-black font-bold w-1/2 border-b-4 border-x-2 border-t-2 border-black p-2 rounded-lg font-[ComicStandar];
 }
@@ -132,7 +127,7 @@
 }
 
 .playerRank, .friendDiv {
-  @apply font-['ComicStandar'] flex flex-col justify-center items-center text-white 2xl:text-xl;
+  @apply font-['ComicStandar'] relative flex flex-col justify-center items-center text-white 2xl:text-xl;
   text-shadow:
     2px 2px 0px black,
     2px -2px 0px black,
@@ -174,6 +169,10 @@ text-shadow:
     0px -2px 0px black;
 }
 
+
+.onlineStatus {
+  @apply h-4 w-4 bg-green-500 rounded-full absolute top-[5%] right-[7%] border-2 border-black;
+}
 
 .tooltip .tooltiptext {
   @apply invisible bg-[white] border-2 border-black text-black text-center whitespace-nowrap absolute z-[1] transition-[visibility] delay-[0s] px-[0.5em] py-[0.25em] rounded-[0.25em] left-[-5%] top-[30%] font-['ComicStandar'] text-wrap;

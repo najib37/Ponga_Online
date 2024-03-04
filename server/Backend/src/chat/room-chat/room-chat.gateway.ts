@@ -44,8 +44,6 @@ import {UserService} from "../../user/user.service";
 import {User} from "../../user/entities/user.entity";
 
 
-const te = () => console.log("hello")
-
 @UseFilters(AllExceptionsFilter)
 @UsePipes(ValidationPipe)
 @WebSocketGateway({

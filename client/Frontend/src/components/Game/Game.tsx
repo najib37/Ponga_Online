@@ -338,7 +338,8 @@ const Game = () => {
 	}
 	
 	function ErrorHandler( error : string ){
-		console.error(error);
+    error;
+		// console.error(error);
 	}
 		
 	function ReplayReplayRefused( State : ReplayStates ){
