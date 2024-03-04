@@ -121,9 +121,12 @@ export class MessageGateway implements OnGatewayConnection, OnGatewayDisconnect,
 
     @SubscribeMessage('findDmMessages')
     async findAllDmMessages(client: AuthSocket, data: Conversation): Promise<MessagesDto> {
+        
+    
+
 
         const user: User = await this.userService.findOne(data.otherUserId);
-        if (!user)
+        if (!user || (client.user.sub === data.otherUserId))
             return undefined
 
         return this.messageService.findAllDmMessages(client?.user?.sub, data);
@@ -156,6 +159,9 @@ export class MessageGateway implements OnGatewayConnection, OnGatewayDisconnect,
 
     @SubscribeMessage('Typing')
     async isTyping(client: AuthSocket, data: Typing): Promise<void> {
+        
+        if (client.user.sub === data.otherUser)
+          return
 
         const isBlocked : boolean = await this.blockService.isBlocked(client.user.sub, data.otherUser);
         if (isBlocked) {
