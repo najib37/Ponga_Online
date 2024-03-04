@@ -1,5 +1,6 @@
 import { Inject, Injectable, forwardRef } from '@nestjs/common';
 import { BlockService } from 'src/block/block.service';
+import { GameConnection } from 'src/game/gameConnection.service';
 import { NotificationGateway } from 'src/notification/notification.gateway';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { FormatedQueryType, PaginationQueryType } from 'src/user/dto/query-validation.dto';
@@ -14,8 +15,8 @@ export class FriendsService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly notification: NotificationGateway,
-
     private readonly blockService: BlockService,
+    private readonly gameConnection: GameConnection,
   ) { }
 
   async addFriend(userId: string, friendId: string) {
@@ -130,6 +131,9 @@ export class FriendsService {
 
     return friends.map(friend => {
       this.notification.isOnline(friend.id) ? friend.status = 'online' : friend.status = 'offline';
+      const room = this.gameConnection.GetRoomByUserId(friend.id);
+      if (room && room.IsOnline(friend.id))
+        friend.status = 'ingame'
       return friend;
     });
   }

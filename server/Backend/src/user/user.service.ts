@@ -6,6 +6,7 @@ import { User } from './entities/user.entity';
 import { SelectUser } from './entities/user-allowed-fields.entity';
 import { FormatedQueryType, PaginationQueryType, PrismaSearchQueryType } from './dto/query-validation.dto';
 import { NotificationGateway } from 'src/notification/notification.gateway';
+import { GameConnection } from 'src/game/gameConnection.service';
 
 @Injectable()
 
@@ -16,7 +17,8 @@ export class UserService {
   constructor(
     private prisma: PrismaService,
     private logger: Logger,
-    private readonly notification: NotificationGateway
+    private readonly notification: NotificationGateway,
+    private readonly gameConnection: GameConnection,
   ) { }
 
   async create(data: CreateUserDto): Promise<User> {
@@ -45,6 +47,9 @@ export class UserService {
     })
     return user.map(user => {
       this.notification.isOnline(user.id) ? user.status = 'online' : user.status = 'offline';
+      const room = this.gameConnection.GetRoomByUserId(user.id);
+      if (room && room.IsOnline(user.id))
+        user.status = 'ingame'
       return user;
     });
   }
@@ -65,8 +70,12 @@ export class UserService {
         },
       },
     )
-    if (user)
+    if (user) {
       this.notification.isOnline(user.id) ? user.status = 'online' : user.status = 'offline';
+      const room = this.gameConnection.GetRoomByUserId(user.id);
+      if (room && room.IsOnline(user.id))
+        user.status = 'ingame'
+    }
 
     return user;
   }
@@ -81,8 +90,12 @@ export class UserService {
         select: { ...this.selectUser }
       }
     )
-    if (user)
+    if (user) {
       this.notification.isOnline(user.id) ? user.status = 'online' : user.status = 'offline';
+      const room = this.gameConnection.GetRoomByUserId(user.id);
+      if (room && room.IsOnline(user.id))
+        user.status = 'ingame'
+    }
     return user;
   }
 
@@ -100,9 +113,12 @@ export class UserService {
         ...data
       },
     })
-    if (user)
+    if (user) {
       this.notification.isOnline(user.id) ? user.status = 'online' : user.status = 'offline';
-    console.log("find or create = ", user);
+      const room = this.gameConnection.GetRoomByUserId(user.id);
+      if (room && room.IsOnline(user.id))
+        user.status = 'ingame'
+    }
     return user;
   }
 
@@ -119,8 +135,12 @@ export class UserService {
         ...selectedFields
       }
     })
-    if (user)
+    if (user) {
       this.notification.isOnline(user.id) ? user.status = 'online' : user.status = 'offline';
+      const room = this.gameConnection.GetRoomByUserId(user.id);
+      if (room && room.IsOnline(user.id))
+        user.status = 'ingame'
+    }
     return user;
   }
 
@@ -141,6 +161,9 @@ export class UserService {
     })
     return user.map(user => {
       this.notification.isOnline(user.id) ? user.status = 'online' : user.status = 'offline';
+      const room = this.gameConnection.GetRoomByUserId(user.id);
+      if (room && room.IsOnline(user.id))
+        user.status = 'ingame'
       return user;
     });
   }
@@ -151,13 +174,17 @@ export class UserService {
         id,
       },
     })
-    if (user)
+    if (user) {
       this.notification.isOnline(user.id) ? user.status = 'online' : user.status = 'offline';
+      const room = this.gameConnection.GetRoomByUserId(user.id);
+      if (room && room.IsOnline(user.id))
+        user.status = 'ingame'
+    }
 
     return user;
   }
 
   async truncate(): Promise<any> { // debug
-    return this.prisma.user.deleteMany(); // debug only
+    // return this.prisma.user.deleteMany(); // debug only
   }
 }

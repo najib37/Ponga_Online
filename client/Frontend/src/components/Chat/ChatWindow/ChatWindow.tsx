@@ -45,11 +45,11 @@ const ChatWindow = () => {
     const [usersReadedMyMsgs , setUsersReadedMyMsgs] = useState<userReadedMsg[] | undefined>([])
 
 
-    ChatWindowMessages(setInputValue)
-    TypingDirectListening(inputValue, setIsTyping)
-    MessageListener()
-    MessageGroupListener()
-
+    
+      ChatWindowMessages(setInputValue)
+      TypingDirectListening(inputValue, setIsTyping)
+      MessageListener()
+      MessageGroupListener()
 
 
     const onClick = async () => {

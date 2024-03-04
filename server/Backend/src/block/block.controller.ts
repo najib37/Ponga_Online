@@ -33,6 +33,9 @@ export class BlockController {
     @Req() req: AuthReq,
     @Param('id', ParseUUIDPipe) userId: string,
   ) {
+    if (req.user.sub === userId) // user tries to block himself
+      return {}
+
     return this.blockService.blockUser(req.user.sub, userId);
   }
 

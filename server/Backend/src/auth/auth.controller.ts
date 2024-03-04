@@ -24,15 +24,18 @@ export class AuthController {
   @UseGuards(GoogleGuard)
   @Get('google/redirect')
   async googleRedirect(@Req() req, @Res({ passthrough: true }) res) {
-    const accessToken = await this.authservice.loginGoogle(req.user);
+    // const accessToken = await this.authservice.loginGoogle(req.user);
     // ! if (the user is 2fa off redirect to a specific page or otherwise)
 	
-	const user = await this.userservice.findOne(req.user.id)
-	if (user?.twoFactorEnabled == true)
-		res.cookie('jwt', accessToken, { httpOnly  : true}).redirect(process.env.CLIENT_URL + '/otp')
-	else
-		res.cookie('jwt', accessToken, { httpOnly: true }).redirect(process.env.CLIENT_URL + '/home')
+	// const user = await this.userservice.findOne(req.user.id)
+	// if (user?.twoFactorEnabled == true)
+	// 	res.cookie('jwt', accessToken, { httpOnly  : true}).redirect(process.env.CLIENT_URL + '/otp')
+	// else
+	// 	res.cookie('jwt', accessToken, { httpOnly: true }).redirect(process.env.CLIENT_URL + '/home')
 
+    return {
+      message: "not implemented"
+    }
 }
 
 

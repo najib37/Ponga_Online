@@ -28,7 +28,9 @@ export class ImagesRepoController {
     @UploadedFile() file: Express.Multer.File
   ) {
     const userId = req.user.sub || '';
-    return this.userService.update(userId, { avatar: file.path })
+    return this.userService.update(userId, {
+      avatar: process.env.EXTERNAL_URL + ':' + process.env.PORT + file.path,
+    })
   }
 
   @Post('/background/')

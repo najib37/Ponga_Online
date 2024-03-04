@@ -40,6 +40,15 @@ const PlayerFriends = () => {
   if (!profile?.friends)
     return (<></>)
 
+  const getStatus = (status: string) => {
+    console.log(status);
+    if (status === 'online')
+      return 'green'
+    if (status === 'offline')
+      return 'grey'
+    return 'orange'
+  }
+
   return (
     <div className="playerFriends">
       <div className="friendsTitle">Friends</div>
@@ -49,7 +58,7 @@ const PlayerFriends = () => {
             <SwiperSlide key={friend.id} >
               <button onClick={() => handleClick(friend.username)}>
                 <div className="friendDiv">
-                  <span className="onlineStatus" style={{backgroundColor: friend.status === 'offline' ? 'gray' : friend.status === 'online' ? 'green' : 'orange'}}></span>
+                  <span className="onlineStatus" style={{backgroundColor: getStatus(friend.status) }}></span>
                   <img src={checkImageUrl(friend.avatar)} className='friendAvatar' />
                   <div className="friendName">{friend.username}</div>
                 </div>

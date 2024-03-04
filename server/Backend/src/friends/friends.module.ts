@@ -6,14 +6,15 @@ import { JwtModule } from '@nestjs/jwt';
 import { UserModule } from 'src/user/user.module';
 import { NotificationModule } from 'src/notification/notification.module';
 import { BlockModule } from 'src/block/block.module';
+import { GameModule } from 'src/game/game.module';
 
 @Module({
   imports: [
-    UserModule,
     PrismaModule,
     JwtModule,
     NotificationModule,
-    BlockModule
+    BlockModule,
+    GameModule
   ],
   controllers: [FriendsController],
   providers: [FriendsService],

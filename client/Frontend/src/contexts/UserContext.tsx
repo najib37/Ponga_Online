@@ -28,7 +28,6 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     if (auth?.authorized)
       getUserTrigger();
-    console.log("____________user ctx useffect________________");
   }, [auth?.authorized])
 
   return (

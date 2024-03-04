@@ -16,16 +16,16 @@ import { NotificationModule } from 'src/notification/notification.module';
   imports: [
     PrismaModule,
     PlayerModule,
-    FriendsModule,
-    BlockModule,
-    ProfileModule,
-	UserModule,
+    // FriendsModule,
+    // BlockModule,
+    // ProfileModule,
+	// UserModule,
 	ScheduleModule.forRoot(),
 	NotificationModule
   ],
   controllers: [GameController],
   providers: [GameService, GameConnection, GameGateway],
-  exports: [GameService, GameGateway]
+  exports: [GameService, GameGateway, GameConnection]
 
 })
 export class GameModule {}

@@ -14,7 +14,7 @@ export interface Use {
 export const userSchema = z.object({
   id: z.string().uuid().optional(),
   email: z.string().email().optional(),
-  name: z.string().trim().min(4).max(20).optional(), // WARN: espace
+  name: z.string().trim().min(4).max(20).regex(/^[a-zA-Z ]+$/).optional(), // WARN: espace
   avatar: z.string().optional(),
   status: z.union([z.literal('online'), z.literal('offline')]).optional(),
 

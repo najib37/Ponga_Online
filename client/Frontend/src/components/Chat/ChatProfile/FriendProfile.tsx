@@ -131,6 +131,8 @@ const FriendProfile = () => {
                                 userData.isFriend && (<Button action="play" onClick={() => {
                                     if (userData?.user.status === 'online')
                                         navigate(`/game/${userData.user.id}`);
+                                    else if (userData?.user.status === 'ingame')
+                                        toast.error(`${userData.user?.username} is in another game`)
                                     else
                                         toast.error(`${userData.user?.username} is offline`)
                                 }}/>)

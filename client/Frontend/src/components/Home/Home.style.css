@@ -3,7 +3,7 @@
 @import 'tailwindcss/utilities';
 
 .polygon {
-  @apply bg-center bg-no-repeat bg-cover h-full w-auto flex justify-center items-center text-[#000000] font-[ComicBook];
+  @apply bg-center bg-no-repeat bg-cover h-full w-auto flex justify-center items-center text-[#E8E6E3] font-[ComicBook];
 }
 
 .Container {

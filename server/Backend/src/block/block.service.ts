@@ -17,7 +17,6 @@ export class BlockService {
     @Inject(forwardRef(() => FriendsService)) // to avoid circular dependencies issues
     private readonly friendsService: FriendsService,
     private readonly prisma: PrismaService,
-    private readonly notification: NotificationGateway,
     private readonly notificationService: NotificationService,
   ) { }
 

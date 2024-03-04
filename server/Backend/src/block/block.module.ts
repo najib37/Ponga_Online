@@ -9,7 +9,6 @@ import { FriendsModule } from 'src/friends/friends.module';
 
 @Module({
   imports: [
-    UserModule,
     PrismaModule,
     JwtModule,
     NotificationModule,

@@ -29,8 +29,8 @@ import { MessageModule } from './chat/directChat/message.module';
     FriendsModule,
     ProfileModule,
     GameModule,
-	RoomChatModule,
-	MessageModule
+    RoomChatModule,
+    MessageModule
   ],
   controllers: [AppController],
   providers: [AppService, Logger],

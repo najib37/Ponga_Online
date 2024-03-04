@@ -130,6 +130,10 @@ export const PlayButton = () => {
     console.log(profile.user);
     if (profile?.user.status === 'online')
       navigate(`/game/${profile.user.id}`);
+
+    else if (profile?.user.status === 'ingame')
+      toast.error(`${profile.user?.username} is in another game`)
+
     else
       toast.error(`${profile.user?.username} is offline`)
   }
