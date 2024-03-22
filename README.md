@@ -22,14 +22,16 @@ shutdown and deleting all the data
 docker compose down --volumes --rmi local
  ```
 
-**Client URL**: localhost:8080
-**Api URL**: localhost:3000
+- **Client URL** : localhost:8080
+- **Api URL** : localhost:3000
+
 
 !!! check the env_example to create your own .env file otherwise the project wont be builth
 
+
 # Live Demo
 
-[143.198.2.149:8080](143.198.2.149:8080)
+**143.198.2.149:8080**
 
 # Screenshots
 
