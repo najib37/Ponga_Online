@@ -16,10 +16,6 @@ LOOPBACKURL=${EXTERNAL_URL}:${PORT}/auth/42/callback
 
 SECRET='the secret to incrypt the Auth user'
 
-GOOGLEUID="google clientuid"
-GOOGLESECRET="google clientsecret"
-GOOGLELOOPBACK=${EXTERNAL_URL}:${PORT}/auth/google/redirect
-
 
 # This was inserted by `prisma init`:
 # Environment variables declared in this file are automatically made available to Prisma.
