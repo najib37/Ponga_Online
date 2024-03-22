@@ -1,6 +1,5 @@
-# PONGA ONLINE
 This is a realtime multiplayer pong game created using the following technologies:
-- backend:
+- [backend](https://github.com/najib37/nest_backend):
 	- **NestJS**
 	- **PrismaORM**
 	- **Socket.io**
@@ -14,14 +13,14 @@ start
 ```
 docker compose up 
 ```
-stop and preserve the data
+shutdown and preserving the user data
 ```
 docker compose down --rmi local
 ```
-stop and delet all the data
+shutdown and deleting all the data
 ```
 docker compose down --volumes --rmi local
-```
+ ```
 
 **Client URL**: localhost:8080
 **Api URL**: localhost:3000
@@ -30,7 +29,7 @@ docker compose down --volumes --rmi local
 
 # Live Demo
 
-143.198.2.149:8080
+[143.198.2.149:8080](143.198.2.149:8080)
 
 # Screenshots
 
