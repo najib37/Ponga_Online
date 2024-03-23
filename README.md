@@ -33,6 +33,9 @@ docker compose down --volumes --rmi local
 
 **143.198.2.149:8080**
 
+# Database Schema
+![image](https://github.com/najib37/Ponga_Online/assets/120307266/80dba000-5085-422b-9a83-4cd0b81d0ad4)
+
 # Screenshots
 
 ![main](https://github.com/najib37/Ponga_Online/assets/120307266/ecad373c-66b4-4284-93c4-70696a7913ee)
